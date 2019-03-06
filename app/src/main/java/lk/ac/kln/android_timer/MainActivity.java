@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private int counter = 1000;
+    private int counter = 10;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +25,11 @@ public class MainActivity extends AppCompatActivity {
                          public void run() {
                              text_count.setText(Integer.toString(counter));
                              counter--;
+
+                             if (counter < 0 ){
+                                 counter = 10;
+                             }
+
                              handler.postDelayed(this, 1000);
                          }
                      }
